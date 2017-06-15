@@ -15,6 +15,7 @@ public class Student {
 
     private String name;
 
+    @Column(unique = true, nullable = false)
     private String email;
 
     @Temporal(TemporalType.DATE)
@@ -25,8 +26,7 @@ public class Student {
     @OneToOne
     private Address address;
 
-    public Student() {
-    }
+
 
     public Student(String name, String email, Date dateOfBirth) {
         this.name = name;
