@@ -23,7 +23,7 @@ public class Student {
 
     @Transient
     private long age;
-    
+
     @ElementCollection
     @CollectionTable(name = "Phone")
     @MapKeyColumn(name = "phoneNumbers")

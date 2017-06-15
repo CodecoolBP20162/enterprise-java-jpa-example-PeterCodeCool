@@ -16,6 +16,9 @@ public class Address {
     private String city;
     private String addr;
 
+    @OneToOne(mappedBy = "")
+    private Student student;
+
     public Address() {
     }
 
