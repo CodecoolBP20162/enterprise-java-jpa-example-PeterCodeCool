@@ -23,10 +23,15 @@ public class Student {
 
     @Transient
     private long age;
+    
+    @ElementCollection
+    @CollectionTable(name = "Phone")
+    @MapKeyColumn(name = "phoneNumbers")
+    @Column(name = "Phone")
+    private List<String> phoneNumbers;
 
     @OneToOne
     private Address address;
-
 
 
     public Student(String name, String email, Date dateOfBirth) {
@@ -40,6 +45,11 @@ public class Student {
     public Student(String name, String email, Date dateOfBirth, Address address) {
         this(name, email, dateOfBirth);
         this.address = address;
+    }
+
+    public Student (String name, String email, Date dateOfBirth, List<String> phoneNumbers, Address address) {
+        this(name, email, dateOfBirth, address);
+        this.phoneNumbers = phoneNumbers;
     }
 
     public long getId() {
@@ -80,6 +90,14 @@ public class Student {
 
     public Address getAddress() {
         return address;
+    }
+
+    public List<String> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumbers(List<String> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
     }
 
     public void setAddress(Address address) {
